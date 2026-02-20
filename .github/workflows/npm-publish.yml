@@ -33,4 +33,7 @@ jobs:
       - name: 发布到 npm
         run: npm publish --access public
         env:
+          # 参考教程：https://www.lihuanyu.com/前端/2025/GitHub-Actions-自动发布-npm-包简易指南/
+          # 令牌生成管理地址：https://www.npmjs.com/settings/fsyyft/tokens，一次生成最多使用 90 天。
+          # Github 密钥管理地址：https://github.com/fsyyft-ts/npmjs-add/settings/secrets/actions。
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
