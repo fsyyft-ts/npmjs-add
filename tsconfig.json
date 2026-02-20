@@ -1,22 +1,123 @@
 {
+  /**
+   * TypeScript 编译选项配置。
+   *
+   * @description
+   * 定义 TypeScript 编译器的行为，包括目标版本、模块系统、
+   * 类型检查级别和输出文件位置等。
+   *
+   * @remarks
+   * - target: 目标 ECMAScript 版本；
+   * - module: 模块系统类型；
+   * - strict: 启用所有严格类型检查选项。
+   */
   "compilerOptions": {
+    /**
+     * 目标 ECMAScript 版本。
+     * @description 指定编译后的 JavaScript 版本。
+     */
     "target": "ES2022",
+
+    /**
+     * 模块系统类型。
+     * @description 指定生成的模块代码格式，ESNext 支持最新特性。
+     */
     "module": "ESNext",
+
+    /**
+     * 编译包含的库文件。
+     * @description 指定编译时包含的内置类型定义。
+     */
     "lib": ["ES2022"],
+
+    /**
+     * 模块解析策略。
+     * @description 使用打包工具的模块解析策略。
+     */
     "moduleResolution": "bundler",
+
+    /**
+     * 允许导入 JSON 文件。
+     * @description 允许使用 import 导入 .json 文件。
+     */
     "resolveJsonModule": true,
+
+    /**
+     * 允许编译 JavaScript 文件。
+     * @description 允许 .js 文件在项目中被导入。
+     */
     "allowJs": true,
+
+    /**
+     * 检查 JavaScript 文件。
+     * @description 是否对 .js 文件进行类型检查。
+     */
     "checkJs": false,
+
+    /**
+     * 输出目录。
+     * @description 指定编译后文件的输出位置。
+     */
     "outDir": "./dist",
+
+    /**
+     * 根目录。
+     * @description 指定源代码的根目录，用于控制输出目录结构。
+     */
     "rootDir": "./src",
+
+    /**
+     * 严格模式。
+     * @description 启用所有严格类型检查选项，提升代码质量。
+     */
     "strict": true,
+
+    /**
+     * ES 模块互操作性。
+     * @description 允许从 ESM 模块导入 CommonJS 模块。
+     */
     "esModuleInterop": true,
+
+    /**
+     * 跳过库文件类型检查。
+     * @description 跳过声明文件的类型检查，加快编译速度。
+     */
     "skipLibCheck": true,
+
+    /**
+     * 强制文件名大小写一致。
+     * @description 防止因大小写不一致导致的导入问题。
+     */
     "forceConsistentCasingInFileNames": true,
+
+    /**
+     * 生成声明文件。
+     * @description 为每个 TypeScript 文件生成 .d.ts 类型声明文件。
+     */
     "declaration": true,
+
+    /**
+     * 生成声明 Source Map。
+     * @description 为声明文件生成 Source Map，便于调试。
+     */
     "declarationMap": true,
+
+    /**
+     * 生成 Source Map。
+     * @description 为编译后的文件生成 Source Map，便于调试。
+     */
     "sourceMap": true
   },
+
+  /**
+   * 包含的文件。
+   * @description 指定需要编译的文件模式。
+   */
   "include": ["src/**/*"],
+
+  /**
+   * 排除的文件。
+   * @description 指定不需要编译的文件和目录。
+   */
   "exclude": ["node_modules", "dist"]
 }
