@@ -1,0 +1,107 @@
+# CI 工作流 - 每次提交和 PR 时运行。
+name: CI
+
+# 触发条件：所有分支的 push 和 PR。
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    # 矩阵策略：在多个 Node.js 版本上并行测试。
+    strategy:
+      matrix:
+        node-version: [22, 24, 25]
+
+    steps:
+      # ===========================
+      # 步骤 1: 拉取代码
+      # ===========================
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      # ===========================
+      # 步骤 2: 安装 Node.js
+      # ===========================
+      - name: 安装 Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: "${{ matrix.node-version }}"
+          cache: "npm"
+
+      # ===========================
+      # 步骤 3: 安装依赖
+      # ===========================
+      - name: 安装项目依赖
+        run: |
+          echo "::group::安装依赖中..."
+          npm ci
+          echo "::endgroup::"
+          echo "✅ 依赖安装完成"
+
+      # ===========================
+      # 步骤 4: 代码风格检查
+      # ===========================
+      - name: 运行 ESLint 代码检查
+        run: |
+          echo "::group::ESLint 代码风格检查中..."
+          npm run lint
+          echo "::endgroup::"
+          echo "✅ ESLint 检查通过"
+
+      # ===========================
+      # 步骤 5: TypeScript 类型检查
+      # ===========================
+      - name: TypeScript 类型检查
+        run: |
+          echo "::group::TypeScript 类型检查中..."
+          npx tsc --noEmit
+          echo "::endgroup::"
+          echo "✅ TypeScript 类型检查通过"
+
+      # ===========================
+      # 步骤 6: 运行单元测试
+      # ===========================
+      - name: 运行单元测试
+        run: |
+          echo "::group::运行单元测试中..."
+          npm run test:run
+          echo "::endgroup::"
+          echo "✅ 所有单元测试通过"
+
+      # ===========================
+      # 步骤 7: 构建项目
+      # ===========================
+      - name: 构建项目
+        run: |
+          echo "::group::构建项目中..."
+          npm run build
+          echo "::endgroup::"
+          echo "✅ 项目构建完成"
+
+      # ===========================
+      # 步骤 8: 验证构建产物
+      # ===========================
+      - name: 验证构建产物
+        run: |
+          echo "验证构建产物文件..."
+          test -f dist/index.js && echo "✅ dist/index.js" || exit 1
+          test -f dist/index.cjs && echo "✅ dist/index.cjs" || exit 1
+          test -f dist/cli.js && echo "✅ dist/cli.js" || exit 1
+          test -f dist/cli.cjs && echo "✅ dist/cli.cjs" || exit 1
+          test -f dist/index.d.ts && echo "✅ dist/index.d.ts" || exit 1
+          test -f dist/cli.d.ts && echo "✅ dist/cli.d.ts" || exit 1
+          echo "✅ 所有构建产物验证通过"
+
+      # ===========================
+      # 步骤 9: 完成
+      # ===========================
+      - name: CI 检查完成
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "🎉 CI 检查全部通过！"
+          echo "Node.js 版本: ${{ matrix.node-version }}"
+          echo "=========================================="
