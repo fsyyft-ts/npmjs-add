@@ -1,7 +1,7 @@
 {
   "name": "@fsyyft/npmjs-add",
-  "version": "0.0.3",
-  "description": "A simple addition utility library",
+  "version": "0.1.0",
+  "description": "一个关于加法运算的 npm 管理的项目示例",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -28,7 +28,7 @@
     "url": "git+https://github.com/fsyyft-ts/npmjs-add.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "fsyyft-ts",
   "license": "ISC",
   "bin": {
     "npmjs-add": "./dist/cli.js"
