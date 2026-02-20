@@ -2,8 +2,14 @@
 
 > 一个简单的加法工具库
 
-[![npm version](https://badge.fathy.xyz/shields/npm/@fsyyft/npmjs-add)](https://www.npmjs.com/package/@fsyyft/npmjs-add)
+[![npm version](https://badge.fathy.xyz/shields/npm/v/@fsyyft/npmjs-add)](https://www.npmjs.com/package/@fsyyft/npmjs-add)
+[![npm downloads](https://img.shields.io/npm/dm/@fsyyft/npmjs-add)](https://www.npmjs.com/package/@fsyyft/npmjs-add)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://www.npmjs.com/package/@fsyyft/npmjs-add)
+[![CI](https://github.com/fsyyft-ts/npmjs-add/workflows/CI/badge.svg)](https://github.com/fsyyft-ts/npmjs-add/actions)
+[![Publish](https://github.com/fsyyft-ts/npmjs-add/workflows/Publish%20NPM%20Package/badge.svg)](https://github.com/fsyyft-ts/npmjs-add/actions)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![Node](https://img.shields.io/node/v/@fsyyft/npmjs-add)](https://www.npmjs.com/package/@fsyyft/npmjs-add)
+[![minzip](https://img.shields.io/bundlephobia/minzip/@fsyyft/npmjs-add)](https://bundlephobia.com/package/@fsyyft/npmjs-add)
 
 ## 特性
 
