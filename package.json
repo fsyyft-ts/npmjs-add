@@ -1,0 +1,54 @@
+{
+  "name": "@fsyyft/npmjs-add",
+  "version": "0.0.3",
+  "description": "A simple addition utility library",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsup",
+    "prepublishOnly": "npm run build && npm run test:run",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:publish": "bash scripts/test-publish.sh",
+    "publish:npm": "bash scripts/publish.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsyyft-ts/npmjs-add.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "npmjs-add": "./dist/cli.js"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/fsyyft-ts/npmjs-add/issues"
+  },
+  "homepage": "https://github.com/fsyyft-ts/npmjs-add#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.3.0",
+    "eslint": "^10.0.1",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.0",
+    "vitest": "^4.0.18"
+  }
+}
