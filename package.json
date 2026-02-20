@@ -1,6 +1,6 @@
 {
   "name": "@fsyyft/npmjs-add",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "A simple addition utility library",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -19,7 +19,9 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "test": "vitest",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "test:publish": "bash scripts/test-publish.sh",
+    "publish:npm": "bash scripts/publish.sh"
   },
   "repository": {
     "type": "git",
